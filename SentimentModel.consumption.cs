@@ -2,9 +2,7 @@
 using Microsoft.ML;
 using Microsoft.ML.Data;
 using System;
-using System.Linq;
 using System.IO;
-using System.Collections.Generic;
 namespace NodeBlock_Plugin_MachineLearning
 {
     public partial class SentimentModel
@@ -50,7 +48,7 @@ namespace NodeBlock_Plugin_MachineLearning
 
         #endregion
 
-        private static string MLNetModelPath = Path.GetFullPath("SentimentModel.zip");
+        private static readonly string MLNetModelPath = Path.GetFullPath("SentimentModel.zip");
 
         public static readonly Lazy<PredictionEngine<ModelInput, ModelOutput>> PredictEngine = new Lazy<PredictionEngine<ModelInput, ModelOutput>>(() => CreatePredictEngine(), true);
 
@@ -61,14 +59,14 @@ namespace NodeBlock_Plugin_MachineLearning
         /// <returns><seealso cref=" ModelOutput"/></returns>
         public static ModelOutput Predict(ModelInput input)
         {
-            var predEngine = PredictEngine.Value;
+            PredictionEngine<ModelInput, ModelOutput> predEngine = PredictEngine.Value;
             return predEngine.Predict(input);
         }
 
         private static PredictionEngine<ModelInput, ModelOutput> CreatePredictEngine()
         {
-            var mlContext = new MLContext();
-            ITransformer mlModel = mlContext.Model.Load(MLNetModelPath, out var _);
+            MLContext mlContext = new MLContext();
+            ITransformer mlModel = mlContext.Model.Load(MLNetModelPath, out DataViewSchema _);
             return mlContext.Model.CreatePredictionEngine<ModelInput, ModelOutput>(mlModel);
         }
     }
