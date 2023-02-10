@@ -6,16 +6,16 @@ using NodeBlock_Plugin_MachineLearning;
 namespace NodeBlock.Plugin.MachineLearning.Nodes.SentimentAnalysis
 {
 
-    [NodeDefinition("MachineLearnSampleNode", "Machine Learn Sample", NodeTypeEnum.Function, "ML.NET")]
+    [NodeDefinition("SentimentAnalysisNode", "Sentiment Analysis", NodeTypeEnum.Function, "Machine Learning")]
     [NodeGraphDescription("Predict if the text has a positive or negative sentiment")]
-    public class MachineLearnSampleNode : Node
+    public class SentimentAnalysisNode : Node
     {
-        public MachineLearnSampleNode(string id, BlockGraph graph)
-                : base(id, graph, typeof(MachineLearnSampleNode).Name)
+        public SentimentAnalysisNode(string id, BlockGraph graph)
+                : base(id, graph, typeof(SentimentAnalysisNode).Name)
         {
             InParameters.Add("testString", new NodeParameter(this, "testString", typeof(string), true));
 
-            OutParameters.Add("outSent", new NodeParameter(this, "outSent", typeof(string), false));
+            OutParameters.Add("output", new NodeParameter(this, "output", typeof(bool), false));
         }
 
         public override bool CanBeExecuted => true;
@@ -32,7 +32,7 @@ namespace NodeBlock.Plugin.MachineLearning.Nodes.SentimentAnalysis
 
             SentimentModel.ModelOutput result = SentimentModel.Predict(sampleData);
 
-            OutParameters["outSent"].SetValue((result.PredictedLabel == 1) ? "Positive" : "Negative");
+            OutParameters["output"].SetValue((result.PredictedLabel == 1) ? true : false);
 
             return true;
         }

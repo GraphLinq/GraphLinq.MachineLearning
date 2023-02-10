@@ -21,7 +21,7 @@
   <h3 align="center">GraphLinq.MachineLearning</h3>
 
   <p align="center">
-    {Description}
+    Plugin for the GraphLinq Engine that uses Machine Learning to process a string of data.
     <br />
     <a target="_blank" href="https://docs.graphlinq.io"><strong>Explore the docs »</strong></a>
     <br />
@@ -40,6 +40,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#about-the-project">About The Project</a></li>
+    <li><a href="#getting-started">Getting Started</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -50,7 +51,26 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-{About}
+This plugin will allow a Graph to consume data, create a dataset, train a model, and make predictions using ML.NET.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+- Add the sample block to a graph
+- Add a string to the input of the comments you want to try and predict
+- Output string will return a Boolean of True or False. True is a positive sentiment, false is a negative sentiment.
+
+### Examples
+
+> Positive Sentiment
+
+<img src="img/positive.png" alt="Logo" width="830">
+
+> Negative Sentiment
+
+<img src="img/negative.png" alt="Logo" width="830">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -99,80 +119,3 @@ Made with [contributors-img](https://contrib.rocks).
 [issues-url]: https://github.com/GraphLinq/GraphLinq.MachineLearning/issues
 [license-shield]: https://img.shields.io/github/license/GraphLinq/GraphLinq.MachineLearning.svg?style=for-the-badge
 [license-url]: https://github.com/GraphLinq/GraphLinq.MachineLearning/blob/master/LICENSE.txt
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# GraphLinq.MachineLearning
-
-Plugin of the GraphLinq Engine using ML.NET
-
-## Experimental / Proof-Of-Concept
-
-This plugin will allow a graph to consume data, create a dataset, train a model, and make predictions. (Or possibly only allow making predictions and the dataset and model will be provided by us.)
-
-Sample data currently includes sentiment analysis trained from Yelp comments. The goal would be to build a model around crypto sentiment to predict news or twitter comment sentiment.
-
-TODO: Add a Telegram/Discord chat bot data for spam detection.
-
-Additional use cases to follow.
-
-## Example
-
-- Add the sample block to a graph
-- Add a string to the input of the comments you want to try and predict
-- Output string will return `Positive` or `Negative`
-
-## Tests
-
-- Input
-  - "I had a terrible time. Never going again..."
-- Result
-  - `Negative`
-
-- Input
-  - "I love this place. I go there all the time"
-- Result
-  - `Positive`
