@@ -23,7 +23,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.ML" Version="1.7.0" />
+    <PackageReference Include="Microsoft.ML" Version="2.0.1" />
+    <PackageReference Include="Microsoft.ML.FastTree" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GraphLinq.Encoding\NodeBlock.Engine.Encoding.csproj" />
@@ -41,8 +42,21 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup Label="SpamModel">
+    <None Include="SpamModel.consumption.cs">
+      <DependentUpon>SpamModel.mbconfig</DependentUpon>
+    </None>
+    <None Include="SpamModel.training.cs">
+      <DependentUpon>SpamModel.mbconfig</DependentUpon>
+    </None>
+    <None Include="SpamModel.zip">
+      <DependentUpon>SpamModel.mbconfig</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Condition=" '$(OS)' != 'Unix' " Command="copy /Y &quot;$(TargetDir)$(ProjectName).dll&quot; &quot;$(SolutionDir)\GraphLinq.CLI\bin\Debug\netcoreapp3.1\plugins&quot;" />
-	<Exec Condition=" '$(OS)' != 'Unix' " Command="copy /Y &quot;SentimentModel.zip&quot; &quot;$(SolutionDir)\GraphLinq.CLI\bin\Debug\netcoreapp3.1&quot;" />
+    <Exec Condition=" '$(OS)' != 'Unix' " Command="copy /Y &quot;SentimentModel.zip&quot; &quot;$(SolutionDir)\GraphLinq.CLI\bin\Debug\netcoreapp3.1&quot;" />
+    <Exec Condition=" '$(OS)' != 'Unix' " Command="copy /Y &quot;SpamModel.zip&quot; &quot;$(SolutionDir)\GraphLinq.CLI\bin\Debug\netcoreapp3.1&quot;" />
   </Target>
 </Project>
