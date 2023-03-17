@@ -58,9 +58,11 @@ This plugin will allow a Graph to consume data, create a dataset, train a model,
 <!-- GETTING STARTED -->
 ## Getting Started
 
-- Add the sample block to a graph
-- Add a string to the input of the comments you want to try and predict
-- Output string will return a Boolean of True or False. True is a positive sentiment, false is a negative sentiment.
+- Add the Machine Learning block to a graph.
+- Add a string to the input with the data you want to test.
+- Output string will return a Boolean of True or False.
+  - Sentiment: True is a positive sentiment, false is a negative sentiment.
+  - Spam: True is spam, false is not spam.
 
 ### Examples
 
@@ -71,6 +73,8 @@ This plugin will allow a Graph to consume data, create a dataset, train a model,
 > Negative Sentiment
 
 <img src="img/negative.png" alt="Logo" width="830">
+
+The Spam detection block works the exact same way as the example above.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
