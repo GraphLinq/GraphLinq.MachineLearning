@@ -71,5 +71,6 @@
     <Exec Condition=" '$(OS)' != 'Unix' " Command="copy /Y &quot;$(TargetDir)$(ProjectName).dll&quot; &quot;$(SolutionDir)\GraphLinq.CLI\bin\Debug\netcoreapp3.1\plugins&quot;" />
     <Exec Condition=" '$(OS)' != 'Unix' " Command="copy /Y &quot;SentimentModel.zip&quot; &quot;$(SolutionDir)\GraphLinq.CLI\bin\Debug\netcoreapp3.1&quot;" />
     <Exec Condition=" '$(OS)' != 'Unix' " Command="copy /Y &quot;SpamModel.zip&quot; &quot;$(SolutionDir)\GraphLinq.CLI\bin\Debug\netcoreapp3.1&quot;" />
+	<Exec Condition=" '$(OS)' != 'Unix' " Command="copy /Y &quot;PriceForecastModel.zip&quot; &quot;$(SolutionDir)\GraphLinq.CLI\bin\Debug\netcoreapp3.1&quot;" />
   </Target>
 </Project>
