@@ -24,7 +24,8 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.ML" Version="2.0.1" />
-    <PackageReference Include="Microsoft.ML.FastTree" Version="2.0.0" />
+    <PackageReference Include="Microsoft.ML.FastTree" Version="2.0.1" />
+    <PackageReference Include="Microsoft.ML.TimeSeries" Version="2.0.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GraphLinq.Encoding\NodeBlock.Engine.Encoding.csproj" />
@@ -51,6 +52,18 @@
     </None>
     <None Include="SpamModel.zip">
       <DependentUpon>SpamModel.mbconfig</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup Label="PriceForecastModel">
+    <None Include="PriceForecastModel.consumption.cs">
+      <DependentUpon>PriceForecastModel.mbconfig</DependentUpon>
+    </None>
+    <None Include="PriceForecastModel.training.cs">
+      <DependentUpon>PriceForecastModel.mbconfig</DependentUpon>
+    </None>
+    <None Include="PriceForecastModel.zip">
+      <DependentUpon>PriceForecastModel.mbconfig</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
