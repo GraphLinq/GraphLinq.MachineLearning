@@ -9,6 +9,7 @@ namespace NodeBlock.Plugin.MachineLearning.Nodes.PriceForecast
 
     [NodeDefinition("PriceForecastNode", "Price Forecast", NodeTypeEnum.Function, "Machine Learning")]
     [NodeGraphDescription("Forecast price based on time series historical data")]
+    [NodeIDEParameters(Hidden = true)]
     public class PriceForecastNode : Node
     {
         public PriceForecastNode(string id, BlockGraph graph)

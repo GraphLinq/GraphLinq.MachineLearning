@@ -45,7 +45,7 @@ namespace NodeBlock_Plugin_MachineLearning
 
         #endregion
 
-        private static string MLNetModelPath = Path.GetFullPath(@"H:\Projects\GraphLinq\GraphLinq.MachineLearning\PriceForecastModel.zip");
+        private static string MLNetModelPath = Path.GetFullPath("PriceForecastModel.zip");
 
         public static readonly Lazy<TimeSeriesPredictionEngine<ModelInput, ModelOutput>> PredictEngine = new Lazy<TimeSeriesPredictionEngine<ModelInput, ModelOutput>>(() => CreatePredictEngine(), true);
 
